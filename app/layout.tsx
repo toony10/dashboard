@@ -3,7 +3,7 @@ import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { AuthContextProvider } from "@/context/AuthContext";
-// import Loading from "./loading";
+import Navbar from "@/components/shared/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,6 +15,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
     <html lang="en">
       <body>
@@ -22,7 +25,7 @@ export default function RootLayout({
           <SidebarProvider>
             <AppSidebar />
             <main className="w-full">
-              <SidebarTrigger />
+              <Navbar />
               { children }
             </main>
           </SidebarProvider>

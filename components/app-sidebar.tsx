@@ -1,8 +1,5 @@
-'use client'
 import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { auth } from '@/lib/firebase'
-import { signOut } from 'firebase/auth'
+
 
 import {
   Sidebar,
@@ -15,8 +12,7 @@ import {
 } from "@/components/ui/sidebar"
 import Link from "next/link"
 import Image from "next/image"
-import { useRouter } from 'next/navigation'
-import { usePathname } from 'next/navigation'
+
 
 
 // This is sample data.
@@ -38,13 +34,6 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const pathname = usePathname()
-  const router = useRouter()
-
-  const handleLogout = async () => {
-    await signOut(auth)
-    router.push('/login')
-  }
 
   return (
     <Sidebar variant="floating" { ...props }>
@@ -72,7 +61,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               </SidebarMenuItem>
             )) }
           </SidebarMenu>
-          { pathname === '/login' ? "" : <Button variant="outline" className="mt-10" onClick={ handleLogout }>Logout</Button> }
+
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
