@@ -3,6 +3,7 @@ import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { AuthContextProvider } from "@/context/AuthContext";
+// import Loading from "./loading";
 
 export const metadata: Metadata = {
   title: "Create Next App",

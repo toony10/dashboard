@@ -8,18 +8,13 @@ import {
     ResponsiveContainer,
 } from 'recharts'
 
-const data = [
-    { name: 'Electronics', value: 400 },
-    { name: 'Clothing', value: 300 },
-    { name: 'Groceries', value: 200 },
-    { name: 'Furniture', value: 100 },
-]
 
 const COLORS = ['#4f46e5', '#22c55e', '#f97316', '#ec4899']
 
-export default function CategoryPieChart() {
+export default function CategoryPieChart({ title, data }: ChartProps) {
     return (
         <div className="w-full h-[400px]">
+            <h2 className="text-xl font-bold mb-4 text-center">{ title }</h2>
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                     <Pie
@@ -29,7 +24,7 @@ export default function CategoryPieChart() {
                         cx="50%"
                         cy="50%"
                         outerRadius={ 120 }
-                        label
+                        label={ ({ value }) => `${value}%` }
                     >
                         { data.map((entry, index) => (
                             <Cell key={ `cell-${index}` } fill={ COLORS[index % COLORS.length] } />
