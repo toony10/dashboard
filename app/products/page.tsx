@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/table'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { fetchProducts } from '@/redux/features/productsSlice'
+import Image from 'next/image'
 
 const itemsPerPage = 5
 
@@ -106,9 +107,11 @@ export default function ProductsPage() {
                             { paginated.map((product) => (
                                 <TableRow key={ product.id }>
                                     <TableCell>
-                                        <img
+                                        <Image
                                             src={ product.thumbnail }
                                             alt={ product.title }
+                                            width={ 100 }
+                                            height={ 100 }
                                             className="w-16 h-16 object-cover rounded"
                                         />
                                     </TableCell>
