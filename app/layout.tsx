@@ -4,6 +4,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { AuthContextProvider } from "@/context/AuthContext";
 import Navbar from "@/components/shared/Navbar";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,15 +22,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthContextProvider>
-          <SidebarProvider>
-            <AppSidebar />
-            <main className="w-full">
-              <Navbar />
-              { children }
-            </main>
-          </SidebarProvider>
-        </AuthContextProvider>
+        <Providers>
+          <AuthContextProvider>
+            <SidebarProvider>
+              <AppSidebar />
+              <main className="w-full">
+                <Navbar />
+                { children }
+              </main>
+            </SidebarProvider>
+          </AuthContextProvider>
+        </Providers>
       </body>
     </html>
   );
